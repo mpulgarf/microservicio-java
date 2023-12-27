@@ -48,3 +48,15 @@ jobs:
      run: |
        docker push wladimirluna/microservicio-java
      
+ deploy:
+
+    runs-on: self-hosted
+    needs: build  
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Minikube
+        run: |
+          kubectl apply -f deployment.yml
+    
