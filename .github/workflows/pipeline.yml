@@ -58,5 +58,6 @@ jobs:
 
       - name: Deploy to Minikube
         run: |
+          echo "Iniciando despliegue en Kubernetes"
           kubectl apply -f deployment.yml
     
