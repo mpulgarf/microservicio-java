@@ -1,23 +1,44 @@
+
 name: CI
 on:
   
  push:
-  branches: [ "feature-ms-miguelPulgar-mensaje" ]
+  branches: [ "main" ]
  pull_request:
-  branches: [ "feature-ms-miguelPulgar-mensaje" ]
+  branches: [ "main" ]
   
  workflow_dispatch:
 jobs:
   
- build:
-   
-  runs-on: ubuntu-latest
-  
-  steps:
-   
-   - uses: actions/checkout@v3
-   # Runs a set of commands using the runners shell
-   - name: Run a multi-line script
-     run: |
-       echo Add other actions to build,
-       echo test, and deploy your project.
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Java 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+    
+    - name: Build
+      run: |
+       chmod +x gradlew
+       ./gradlew build
+       cd ./build
+       ls -ltr
+       
+    - name: Docker Login
+      uses: docker/login-action@v2.2.0
+      with:
+        username: ${{ secrets.docker.user }}
+        password: ${{ secrets.docker.password }}
+    
+    - name: Construccion docker
+      run: |
+       docker build . --file Dockerfile --tag microservicio-java-mpulgar:$(date +%s)
+       docker tag microservicio-java-mpulgar mpulgarf/microservicio-java-mpulgar
+       docker push mpulgarf/microservicio-java-mpulgar
