@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>testing-web-complete</artifactId>
+	<artifactId>microservicio-java-mpulgar</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>testing-web-complete</name>
+	<name>microservicio-java-mpulgar</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
