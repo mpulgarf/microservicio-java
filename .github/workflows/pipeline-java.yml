@@ -2,9 +2,9 @@ name: CI
 on:
   
  push:
-  branches: [ "main" ]
+  branches: [ "feature-ms-miguelPulgar-mensaje" ]
  pull_request:
-  branches: [ "main" ]
+  branches: [ "feature-ms-miguelPulgar-mensaje" ]
   
  workflow_dispatch:
 jobs:
