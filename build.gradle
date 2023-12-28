@@ -56,5 +56,8 @@ sonar {
 }
 
 test {
+  jacoco {
+	enabled = true
+  }
   useJUnitPlatform()
 }
