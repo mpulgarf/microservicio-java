@@ -38,14 +38,6 @@ dependencies {
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-jacocoTestReport {
-	dependsOn test
-		reports {
-			html.enabled true
-			xml.enabled true
-		}
-}
-
 sonar {
   properties {
     property "sonar.projectKey", "WladimirLuna_microservicio-java"
@@ -55,9 +47,17 @@ sonar {
   }
 }
 
+jacocoTestReport {
+  dependsOn test
+  reports {
+    html.enabled true
+    xml.enabled true
+  }
+}
+
 test {
   jacoco {
-	enabled = true
+    enabled = true
   }
   useJUnitPlatform()
 }
