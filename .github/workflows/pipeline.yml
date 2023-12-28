@@ -21,6 +21,11 @@ jobs:
       ./gradlew build
       cd ./build
       ls -ltr
+
+   - name: UnitTest
+     run: |
+      chmod +x gradlew
+      ./gradlew test
       
    - name: SonarCloud Analysis
      run: |
