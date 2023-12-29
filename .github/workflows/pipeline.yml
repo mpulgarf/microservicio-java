@@ -75,7 +75,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Postman
-    - uses: matt-ball/newman-action@master
+      uses: matt-ball/newman-action@master
       with:
         collection: microservicio-java.postman_collection.json
         environment: localhost.postman_environment.json
