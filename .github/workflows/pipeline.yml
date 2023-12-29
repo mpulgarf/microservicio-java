@@ -65,4 +65,16 @@ jobs:
         run: |
           echo "Iniciando despliegue en Kubernetes"
           kubectl apply -f deployment.yml
+
+ acceptanceTests:
+
+  runs-on: self-hosted
+  needs: deploy
+  steps:
+
+    - uses: actions/checkout@v3
+
+    - name: Postman
+      run: |
+        run microservicio-java.postman_collection.json
     
