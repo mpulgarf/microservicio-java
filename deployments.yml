@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservicio-java-mpulgar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservicio-java-mpulgar
+  template:
+    metadata:
+      labels:
+        app: microservicio-java-mpulgar
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: microservicio-java-mpulgar
+        image: mpulgarf/microservicio-java-mpulgar:tagname:latest
+        ports:
+        - containerPort: 8080
+          name: microservicio-java-mpulgar
+        resources:
+          requests:
+            cpu: 2m
+            memory: 400Mi
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: microservicio-java-mpulgar-service
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: microservicio-java-mpulgar
+  type: LoadBalancer
