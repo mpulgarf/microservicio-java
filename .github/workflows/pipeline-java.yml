@@ -29,6 +29,11 @@ jobs:
        ./gradlew build
        cd ./build
        ls -ltr
+
+    - name: SonarCloud
+      run: |
+        chmod +x gradlew 
+        ./gradlew build sonar -Dsonar.token=${{ secrets.SONARCLOUD_TOKEN }}
        
     - name: Docker Login
       uses: docker/login-action@v2.2.0
