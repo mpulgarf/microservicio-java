@@ -76,5 +76,5 @@ jobs:
 
     - name: Postman
       run: |
-        run microservicio-java.postman_collection.json
+        newman run microservicio-java.postman_collection.json
     
