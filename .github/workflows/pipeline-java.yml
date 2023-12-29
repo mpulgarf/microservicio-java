@@ -39,5 +39,5 @@ jobs:
     
     - name: Construccion docker
       run: |
-       docker build . --file Dockerfile --tag microservicio-java-mpulgar:$(date +%s)
-       docker push microservicio-java-mpulgar:latest
+       docker build . --file Dockerfile --tag mpulgarf/microservicio-java-mpulgar:$(date +%s)
+       docker push mpulgarf/microservicio-java-mpulgar:latest
