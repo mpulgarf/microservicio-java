@@ -24,7 +24,7 @@ dependencies {
 sonar {
   properties {
     property "sonar.projectKey", "mpulgarf_microservicio-java"
-    property "sonar.organization", "mpulgarf"
+    property "sonar.organization", "mpulgarf6655487"
     property "sonar.host.url", "https://sonarcloud.io/"
     property "sonar.projectName", "microservicio-java"
   }
