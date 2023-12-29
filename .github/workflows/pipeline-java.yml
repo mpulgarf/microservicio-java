@@ -1,4 +1,3 @@
-
 name: CI
 on:
   
@@ -41,3 +40,13 @@ jobs:
       run: |
        docker build . --file Dockerfile --tag mpulgarf/microservicio-java-mpulgar:latest
        docker push mpulgarf/microservicio-java-mpulgar
+  deploy:
+  
+    runs-on: self-hosted
+    needs: build  
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to Minikube
+        run: |
+          echo "Iniciando despliegue en Kubernetes"
+          kubectl apply -f deployments.yml
