@@ -16,7 +16,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
       - name: microser-java
-        image: mpulgarf/microservicio-java-mpulgar:tagname:latest
+        image: mpulgarf/microservicio-java-mpulgar:latest
         ports:
         - containerPort: 8080
           name: microser-java
